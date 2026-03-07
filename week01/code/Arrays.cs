@@ -13,7 +13,20 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+
+        //COMMENTS
+        //first -> create an array of doubles that is the size of length
+        //second -> fill the array with multiples of number using a for loop.  
+        //The first element should be number, the second should be number * 2, the third should be number * 3, etc
+        //return the array of multiples of number
+
+        var multiples = new double[length];
+        for (var i = 0; i < length; i++)
+        {
+            multiples[i] = number * (i + 1);
+        }
+
+        return multiples; 
     }
 
     /// <summary>
@@ -29,5 +42,21 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        //COMMENTS
+        //first -> create a new list of integers that is the same size as data
+        //second -> fill the new list with the values from data but in the correct rotated position using a for loop
+        //(i + amount) % data.Count will give the correct index in the new list for the value at index i in data
+        //third -> clear the data list and add all the values from the new list back into data using the AddRange method
+
+        List<int> rotated = new List<int>(new int[data.Count]);
+        for (var i = 0; i < data.Count; i++)
+        {
+            var newIndex = (i + amount) % data.Count;
+            rotated[newIndex] = data[i];
+        }
+
+        data.Clear();
+        data.AddRange(rotated);    
     }
 }
